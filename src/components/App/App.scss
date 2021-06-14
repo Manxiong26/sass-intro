@@ -1,0 +1,488 @@
+
+$gradient: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+$light: #fff;
+$dark: #95a5a6;
+
+@import url(https://fonts.googleapis.com/css?family=Quicksand:400,700);
+
+$blue: #A2D3F1;
+$pink: #F58D93;
+$purple: #9E9BC4;
+$large_degree: 36;
+$small_degree: 18;
+
+.App {
+  text-align: center;
+}
+@mixin transform($translate, $rotate) {
+  transform: translateY($translate) rotateZ($rotate);
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: $gradient;
+}
+//nesting inside another class
+.hamburger {
+  &:hover {
+    cursor: pointer;
+    
+    .hamburger-line {
+      background-color: $dark;
+    }
+  }  
+}
+
+.hide {
+  opacity: 0; 
+}
+
+.hamburger-line {
+  display: block;
+  height: 5px;
+  width: 50px;
+  background-color: $light;
+  border-radius: 5px;
+  margin: 10px auto;
+  transition: all ease 300ms;
+}
+
+.rotate1 {
+  @include transform(15px, 45deg);
+}
+
+.rotate2 {
+  @include transform(-15px, -45deg);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  backface-visibility: hidden;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+.logo {
+  position: relative;
+  width: 375px;
+  height: 375px;
+  margin: 50px auto;
+  border: 1px dashed transparent;
+  
+  &:before, &:after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    margin-left: 50%;
+    margin-top: 50%;
+    box-sizing: border-box;
+  }
+  
+  // Inner Cirlce with Blue border
+  &:before {
+    width: 232px;
+    height: 232px;
+    left: -116px;
+    top: -116px;
+    background: #fff;
+    border: 10px solid $blue;
+  }
+  
+  // Purple Outer Circle
+  &:after {
+    width: 262px;
+    height: 262px;
+    top: -131px;
+    left: -131px;
+    background: $purple;
+    z-index: -1;
+  }
+  
+  // Eyes
+  & .eye {
+    width: 74.5px;
+    height: 74.5px;
+    border-radius: 50%;
+    background: transparent;
+    overflow: hidden;
+    border: 12px solid $purple;
+    position: absolute;
+    top: 130.5px;
+    
+    &:first-of-type {
+      left: 119px;
+      // Left Cheek
+      box-shadow: -35px 47px 0 -25px $pink,
+      // Left Mouth rounded stroke
+               3px 50px 0 -31.25px $purple;
+    }
+    
+    &:nth-of-type(2) {
+      left: 181px;
+      // Right Cheek
+      box-shadow: 35px 47px 0 -25px $pink,
+      // Right Mouth Rounded Stroke
+              -5px 50px 0 -31.25px $purple;
+    }
+    
+    &:before, &:after {
+      content: '';
+      position: absolute;
+    }
+    
+    // eyelids
+    &:before {
+      width: 52px;
+      height: 20px;
+      background: $blue;
+      z-index: 1;
+    }
+    
+    // eyeballs
+    &:after {
+      width: 20.5px;
+      height: 20.5px;
+      border-radius: 50%;
+      background: $pink;
+      left: -10.25px;
+      margin-left: 50%;
+      top: -10.25px;
+      margin-top: 50%;
+    }
+  }
+  
+  & .mouth {
+    width: 66px;
+    height: 33px;
+    left: -33px;
+    margin-left: 50%;
+    top: 218px;
+    position: absolute;
+    overflow: hidden;
+    
+    &:before {
+      content: '';
+      position: absolute;
+      width: 66px;
+      height: 66px;
+      border: 12px solid $purple;
+      box-sizing: border-box;
+      border-radius: 50%;
+      bottom: 0;
+    }
+  }
+}
+
+.pink {
+  border-color: transparent transparent $pink transparent;
+}
+
+.blue {
+  border-color: transparent transparent $blue transparent;
+}
+
+.purple {
+  border-color: transparent transparent $purple transparent;
+}
+
+.triangle {
+  border-style: solid;
+  position: absolute;
+  transform-origin: center center;
+}
+
+.large {
+  border-width: 0 41.25px 64px 41.25px;
+  z-index: -3;
+}
+
+.small {
+  border-width: 0 20.5px 23px 20.5px;
+}
+
+p {
+  width: 100%;
+  text-align: center;
+  font-size: 16px;
+  font-family: 'Quicksand';
+  position: absolute;
+  bottom: -40px;
+  color: #676364;
+  opacity: 0.5;
+  transition: opacity 0.25s ease;
+  
+  &:hover {
+    opacity: 1;
+  }
+  
+  & a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+.large.blue.one {
+  left: -40px;
+  margin-left: 50%;
+}
+
+.large.blue.two {
+  left: 238px;
+  top: 30px;
+  transform: rotate($large_degree * 1deg);
+}
+
+.large.blue.three {
+  left: 294px;
+  top: 108px;
+  transform: rotate($large_degree * 2deg);
+}
+
+.large.blue.four {
+  left: 293px;
+  top: 204px;
+  transform: rotate($large_degree * 3deg);
+}
+
+.large.blue.five {
+  left: 236px;
+  top: 282px;
+  transform: rotate($large_degree * 4deg);
+}
+
+.large.blue.six {
+  left: 144px;
+  top: 311px;
+  transform: rotate($large_degree * 5deg);
+}
+
+.large.blue.seven {
+  left: 54px;
+  top: 282px;
+  transform: rotate($large_degree * 6deg);
+}
+
+.large.blue.eight {
+  left: -3px;
+  top: 204px;
+  transform: rotate($large_degree * 7deg);
+}
+
+.large.blue.nine {
+  left: -4px;
+  top: 108px;
+  transform: rotate($large_degree * 8deg);
+}
+
+.large.blue.ten {
+  left: 54px;
+  top: 30px;
+  transform: rotate($large_degree * 9deg);
+}
+
+.large.pink.one {
+  left: 193px;
+  top: 7px;
+  transform: rotate($small_degree * 1deg);
+}
+
+.large.pink.two {
+  left: 271px;
+  top: 63px;
+  transform: rotate($small_degree * 3deg);
+}
+
+.large.pink.three {
+  left: 301px;
+  top: 155px;
+  transform: rotate($small_degree * 5deg);
+}
+
+.large.pink.four {
+  left: 271px;
+  top: 245px;
+  transform: rotate($small_degree * 7deg);
+}
+
+.large.pink.five {
+  left: 193px;
+  top: 302px;
+  transform: rotate($small_degree * 9deg);
+}
+
+.large.pink.six {
+  left: 95px;
+  top: 302px;
+  transform: rotate($small_degree * 11deg);
+}
+
+.large.pink.seven {
+  left: 18px;
+  top: 245px;
+  transform: rotate($small_degree * 13deg);
+}
+
+.large.pink.eight {
+  left: -11px;
+  top: 155px;
+  transform: rotate($small_degree * 15deg);
+}
+
+.large.pink.nine {
+  left: 19px;
+  top: 63px;
+  transform: rotate($small_degree * 17deg);
+}
+
+.large.pink.ten {
+  left: 95px;
+  top: 7px;
+  transform: rotate($small_degree * 19deg);
+}
+
+.small.purple.one {
+  left: 188px;
+  top: 36px;
+  transform: rotate($small_degree * 0.5deg);
+}
+
+.small.purple.two {
+  left: 230px;
+  top: 50px;
+  transform: rotate($small_degree * 1.5deg);
+}
+
+.small.purple.three {
+  left: 266px;
+  top: 75px;
+  transform: rotate($small_degree * 2.5deg);
+}
+
+.small.purple.four {
+  left: 292px;
+  top: 111px;
+  transform: rotate($small_degree * 3.5deg);
+}
+
+.small.purple.five {
+  left: 305px;
+  top: 153px;
+  transform: rotate($small_degree * 4.5deg);
+}
+
+.small.purple.six {
+  left: 305px;
+  top: 198px;
+  transform: rotate($small_degree * 5.5deg);
+}
+
+.small.purple.seven {
+  left: 292px;
+  top: 239px;
+  transform: rotate($small_degree * 6.5deg);
+}
+
+.small.purple.eight {
+  left: 266px;
+  top: 274px;
+  transform: rotate($small_degree * 7.5deg);
+}
+
+.small.purple.nine {
+  left: 230px;
+  top: 301px;
+  transform: rotate($small_degree * 8.5deg);
+}
+
+.small.purple.ten {
+  left: 188px;
+  top: 314px;
+  transform: rotate($small_degree * 9.5deg);
+}
+
+.small.purple.eleven {
+  left: 142px;
+  top: 314px;
+  transform: rotate($small_degree * 10.5deg);
+}
+
+.small.purple.twelve {
+  left: 101px;
+  top: 301px;
+  transform: rotate($small_degree * 11.5deg);
+}
+
+.small.purple.thirteen {
+  left: 66px;
+  top: 274px;
+  transform: rotate($small_degree * 12.5deg);
+}
+
+.small.purple.fourteen {
+  left: 40px;
+  top: 238px;
+  transform: rotate($small_degree * 13.5deg);
+}
+
+.small.purple.fifteen {
+  left: 27px;
+  top: 198px;
+  transform: rotate($small_degree * 14.5deg);
+}
+
+.small.purple.sixteen {
+  left: 27px;
+  top: 153px;
+  transform: rotate($small_degree * 15.5deg);
+}
+
+.small.purple.seventeen {
+  left: 40px;
+  top: 111px;
+  transform: rotate($small_degree * 16.5deg);
+}
+
+.small.purple.eighteen {
+  left: 66px;
+  top: 75px;
+  transform: rotate($small_degree * 17.5deg);
+}
+
+.small.purple.nineteen {
+  left: 100px;
+  top: 50px;
+  transform: rotate($small_degree * 18.5deg);
+}
+
+.small.purple.twenty {
+  left: 142px;
+  top: 36px;
+  transform: rotate($small_degree * 19.5deg);
+}
+
+@keyframes blink {
+  0% {
+    transform: translate3d(0,0,0);
+  }
+  25% {
+    transform: translate3d(0,0,0);
+  }
+  50% {
+    transform: translate3d(0,0,0);
+  }
+  75% {
+    transform: translate3d(0,0,0);
+  }
+  100% {
+    transform: translate3d(0,0,0);
+  }
+}

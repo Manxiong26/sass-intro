@@ -17,3 +17,12 @@ You will need to setup a table per the database.sql.
 
 
 # sass-intro
+What is SASS (Syntactically Awesome Style Sheet). SASS is an extension to CSS.
+It just makes writing CSS easier with it's ability to nest and create variables for repeat use.
+can create a 
+
+prerequisite installation
+npm install node-sass
+npm install sass-loader
+
+
