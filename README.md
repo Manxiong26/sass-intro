@@ -21,7 +21,7 @@ What is SASS (Syntactically Awesome Style Sheet). SASS is an extension to CSS.
 It just makes writing CSS easier with it's ability to nest and create variables for repeat use.
 can create a Styles folder to keep variables in to call later for different style.
 
-![SASS](SASS.png)
+![SASS](SASS-SASS.png)
 
 prerequisite installation
 npm install node-sass
