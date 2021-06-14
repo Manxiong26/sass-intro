@@ -31,4 +31,7 @@ Future studies on SASS
 
 --being able to create a folder and add variables in the folder and directly add on to individual files.
 
---
+
+
+
+**disclaimer, sass code does not belong to me. This was a code along"**
