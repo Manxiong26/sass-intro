@@ -27,4 +27,8 @@ prerequisite installation
 npm install node-sass
 npm install sass-loader
 
+Future studies on SASS
 
+--being able to create a folder and add variables in the folder and directly add on to individual files.
+
+--
